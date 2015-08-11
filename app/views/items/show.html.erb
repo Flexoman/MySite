@@ -1,13 +1,15 @@
-
-<h1><%= @item.name %></h1>
+<div style="margin:30px; border: solid, red, 2px;">
+<h1><%= @item.name.capitalize %></h1>
 
 <ul>
-    <li> <%= @item.price %> руб. </li>
-     <li> <%= @item.description %> </li>
-     <li> Вес: <%= @item.weight %> кг </li>
-
+    <p> Цена:     <%= @item.price %> руб. </p>
+    <p> Вес:    <b> <%= @item.weight %> </b>  кг </p>
+    <p> real:    <b> <%= @item.real %> </b>   </p>
+    <p>Описание:        <%= @item.description  %> </p>
 
 </ul>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
+
+</div>
