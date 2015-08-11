@@ -1,0 +1,18 @@
+<h1>Create new item</h1>
+
+<%= form_for @item do |f| %>
+
+    <p>price<br><%= f.text_field :price %> </p>
+    <p>  name<br><%= f.text_field :name %></p>
+    <p>description<br><%= f.text_field :description %> </p>
+    <p>weight<br><%= f.text_field :weight %></p>
+
+    <%= f.submit "Создать товар" %>
+
+
+<% end %>
+<%= link_to 'Back', items_path %>
+<!--<form action="/items" method="POST">
+  <input type="text" name="title"/>
+  <input type="submit"/>
+  </form> -->

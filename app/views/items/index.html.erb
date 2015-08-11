@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Real</th>
+      <th>Weight</th>
+      <th>Description</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |i| %>
+      <tr>
+        <td><%= i.name %></td>
+        <td><%= i.price %></td>
+        <td><%= i.real %></td>
+        <td><%= i.weight %></td>
+        <td><%= i.description %></td>
+        <td><%= link_to 'Show', i %></td>
+        <td><%= link_to 'Edit', edit_item_path(i) %></td>
+        <td><%= link_to 'Destroy', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>
