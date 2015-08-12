@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808153347) do
+ActiveRecord::Schema.define(version: 20150811230740) do
 
   create_table "items", force: :cascade do |t|
     t.float    "price"
@@ -23,12 +23,34 @@ ActiveRecord::Schema.define(version: 20150808153347) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
+  create_table "tasks", force: :cascade do |t|
     t.string   "title"
-    t.text     "content"
+    t.string   "status"
+    t.string   "priority"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks_users", id: false, force: :cascade do |t|
+    t.integer "task_id"
+    t.integer "user_id"
+  end
+
+  create_table "user_infos", force: :cascade do |t|
+    t.float    "age"
+    t.string   "education"
+    t.string   "family"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "surname"
+    t.string   "email"
   end
 
 end

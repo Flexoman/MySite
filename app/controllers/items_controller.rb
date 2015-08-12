@@ -53,8 +53,16 @@ end
 def edit
 end
 # /items/1 PUT --> POST
+
 def update
-end
+    respond_to do |format|
+      if @item.update(item_params)
+        format.html { redirect_to @item, notice: 'User was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
 
 #/items/1 DELETE --> POST
 def destroy
